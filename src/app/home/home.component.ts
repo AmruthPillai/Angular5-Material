@@ -8,9 +8,26 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  answer: string = '';
+  answerDisplay: string = '';
+  isCorrect: boolean;
+  showSpinner: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  showAnswer() {
+    this.answerDisplay = '';
+    this.showSpinner = true;
+
+    setTimeout(() => {
+      if (this.answer == 'Amruth' || this.answer == 'amruth') {
+        this.isCorrect = true;
+      }
+      this.showSpinner = false;
+    }, 2000)
   }
 
 }

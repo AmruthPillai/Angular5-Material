@@ -2,7 +2,7 @@
   <mat-toolbar-row>
     <span>ng5 Material</span>
 
-    <span class="example-spacer"></span>
+    <span class="spacer"></span>
 
     <button mat-button>About</button>
     <button mat-button>Services</button>
@@ -10,6 +10,18 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<br>
+<mat-card>
+  <mat-form-field class="full-width">
+    <input matInput [(ngModel)]="answer" placeholder="Who is the author of this app?">
+  </mat-form-field>
 
-<button mat-button>Material Button</button>
+  <br>
+
+  <button mat-raised-button (click)="showAnswer()">Answer Me!</button>
+
+  <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+</mat-card>
+
+<mat-card *ngIf="isCorrect">
+  <h1>Yep, Amruth Pillai is the right answer!</h1>
+</mat-card>
